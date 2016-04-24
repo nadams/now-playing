@@ -1,0 +1,3 @@
+#!/bin/bash
+
+scala -classpath `pwd`/now-playing.scala NowPlaying

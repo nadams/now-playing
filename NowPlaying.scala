@@ -17,13 +17,13 @@ object NowPlaying {
 	  			} else {
 	  				("", "")
 	  			}
-	  		}.toMap.filter(x => x._1 == "xesam:title" || x._1 == "xesam:artist" || x._1 == "xesam:location")
+	  		}.toMap.filter(x => x._1 == "xesam:title" || x._1 == "xesam:artist" || x._1 == "xesam:url")
 
-	  		val nowPlayingResult = NowPlayingResult(wantedLines.get("xesam:title"), wantedLines.get("xesam:artist"), wantedLines.get("xesam:location"))
+	  		val nowPlayingResult = NowPlayingResult(wantedLines.get("xesam:title"), wantedLines.get("xesam:artist"), wantedLines.get("xesam:url"))
 
 	  		nowPlayingResult match {
-	  			case NowPlayingResult(None, None, location) => { 
-	  				val filename = new File(location.get).getName
+	  			case NowPlayingResult(None, None, url) => {
+	  				val filename = new File(url.get).getName
 
 	  				val decodedFilename = URLDecoder.decode(filename, "UTF-8")
 
